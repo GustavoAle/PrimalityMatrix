@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 #ifdef _WIN32
-    char * coloredprintf = "%03d ";
+    char * coloredprintf = "%04d ";
 #else
-    char * coloredprintf = "\x1b[33m%03d\x1b[0m ";
+    char * coloredprintf = "\x1b[1;33m%04d\x1b[0m ";
 #endif
 
 int primality_test(int number, int divisor){
@@ -42,7 +42,10 @@ int main(){
             if(is_prime(c)){
                 printf(coloredprintf,c);
             }else{
-                printf("%03d ",c);
+                //if(c % 2 == 0)
+                //    printf("\x1b[40m    \x1b[0m");
+                //else
+                    printf("%04d ",c);
             }
 
             m++;
